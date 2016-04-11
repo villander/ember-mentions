@@ -1,0 +1,8 @@
+<h3>Mention custon</h3>
+{{mention-custom setMentionsUser=(action 'setMentionsUser')}}
+
+<ul>
+  {{#each users as |user|}}
+    <li>{{user.name}} | @{{user.username}}</li>
+  {{/each}}
+</ul>
