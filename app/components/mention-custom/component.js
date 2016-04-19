@@ -6,7 +6,8 @@ export default Ember.Component.extend({
   classNames: [ classNameIdentifier, 'chat-input'],
   attributeBindings: [ 'contenteditable'],
   contenteditable: true,
-  //filter: '',
+
+  filter: '',
 
   users: [
     {
@@ -23,7 +24,7 @@ export default Ember.Component.extend({
 
   input() {
     this.set('filter', this.element.innerText);
-    this.get('filter');
+    this.addObserver('filter', this.mentionsUsers);
   },
 
   mentionsUsers: Ember.observer('filter', function() {
@@ -68,6 +69,11 @@ export default Ember.Component.extend({
     }
 
   }),
+
+  willDestroyElement() {
+    this._super(...arguments);
+    this.removeObserver('filter', this.mentionsUsers);
+  },
 
   actions: {
     setMentionsUser(arrayOfUsers) {

@@ -1,6 +1,6 @@
 {{input value=filter id="mention"}}
 
-<ul>
+<ul class="mentions-list">
   {{#each mentionsUsers as |user|}}
     <li>{{user.name}} | @{{user.username}}</li>
   {{/each}}

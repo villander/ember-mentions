@@ -1,8 +1,14 @@
 <h3>Mention custon</h3>
-{{mention-custom setMentionsUser=(action 'setMentionsUser')}}
-
-<ul>
-  {{#each users as |user|}}
-    <li>{{user.name}} | @{{user.username}}</li>
-  {{/each}}
-</ul>
+{{mention-custom 
+	filter=message
+	setMentionsUser=(action 'setMentionsUser')
+	keyDown=(action "onKeyDown")
+	
+}}
+{{#if users}}
+{{mentions-list 
+	users=users
+	keyDownToMentions=triggerActionOnMentionsList
+	keyCode=keyCode
+}}
+{{/if}}

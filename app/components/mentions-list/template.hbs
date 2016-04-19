@@ -1,0 +1,8 @@
+<ul class="mentions-list">
+  {{#each users as |user index|}}
+    <li tabindex={{index}}>
+    	<h4>{{user.name}}</h4>
+    	<h4>@</h4><h4 class="user-info-username">{{user.username}}</h4>
+    </li>
+  {{/each}}
+</ul>

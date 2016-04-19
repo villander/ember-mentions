@@ -1,0 +1,21 @@
+.textarea-with-emoji {
+	border: 1px solid black;
+}
+
+
+ul.mentions-list > li {
+
+  background-color: green;
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
+}
+
+.mentions-list > li.select {
+  background-color: blue;
+}
+
+.mentions-list > li {
+	height: 30px;
+    position: relative;
+    cursor: pointer;
+}
